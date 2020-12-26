@@ -14,11 +14,12 @@ const path = require("path");
  */
 const app = express();
 const port = process.env.PORT || "8000";
+app.use(express.static(path.resolve(__dirname, 'views'))); 
 /**
  * Routes Definitions
  */
 app.get("/", (req, res) => {
-  res.status(200).send("Liber - Your Online Library");
+    res.render("index");
 });
 /**
  * Server Activation
