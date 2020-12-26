@@ -1,0 +1,102 @@
+[
+    {
+    "id": "00001",
+    "title": "Unlocking Android",
+    "status": "IN_TRANSIT",
+    "authors": "Robi Sen",
+    "waitingList": [
+      "0002"
+    ]
+  },
+  {
+    "id": "00002",
+    "title": "Unlocking Android 2",
+    "status": "IN_TRANSIT",
+    "authors": "W. Frank Ableson",
+    "waitingList": [
+      "0001",
+      "0007",
+      "0002"
+    ]
+  },
+  {
+    "id": "00003",
+    "title": "Specification by Example",
+    "status": "Available",
+    "authors": "Gojko Adzic",
+    "waitingList": []
+  },
+  {
+    "id": "00004",
+    "title": "Flex 3 in Action",
+    "status": "Available",
+    "authors": "Gojko Adzic",
+    "waitingList": []
+  },
+  {
+    "id": "00005",
+    "title": "Flex 4 in Action",
+    "status": "Available",
+    "authors": "Tariq Ahmed",
+    "waitingList": []
+  },
+  {
+    "id": "00006",
+    "title": "Collective Intelligence in Action",
+    "status": "Available",
+    "authors": "Satnam Alag",
+    "waitingList": []
+  },
+  {
+    "id": "00007",
+    "title": "Zend Framework in Action",
+    "status": "Available",
+    "authors": "Nick Lo",
+    "waitingList": [
+      "0001",
+      "0008"
+    ]
+  },
+  {
+    "id": "00008",
+    "title": "Flex on Java",
+    "status": "Available",
+    "authors": "Bernerd Allmon",
+    "waitingList": []
+  },
+  {
+    "id": "00009",
+    "title": "Griffon in Action",
+    "status": "Available",
+    "authors": "Andres Almiray",
+    "waitingList": []
+  },
+  {
+    "id": "00010",
+    "title": "OSGi in Depth",
+    "status": "IN_TRANSIT",
+    "authors": "Alexandre de Castro Alves",
+    "waitingList": []
+  },
+  {
+    "id": "00011",
+    "title": "Flexible Rails",
+    "status": "Available",
+    "authors": "Peter Armstrong",
+    "waitingList": []
+  },
+  {
+    "id": "00012",
+    "title": "Hello! Flex 4",
+    "status": "Available",
+    "authors": "Peter Armstrong",
+    "waitingList": []
+  },
+  {
+    "id": "00013",
+    "title": "Coffeehouse",
+    "status": "IN_TRANSIT",
+    "authors": "Levi Asher",
+    "waitingList": []
+  }
+]

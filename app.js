@@ -5,6 +5,7 @@
  */
 const express = require("express");
 const path = require("path");
+const showBooks = require('./showBooks')
 /**
  * App Variables
  */
@@ -21,6 +22,11 @@ app.use(express.static(path.resolve(__dirname, 'views')));
 app.get("/", (req, res) => {
     res.render("index");
 });
+
+app.get("/books",  (req, res) => {
+   res.json(showBooks())
+});
+
 /**
  * Server Activation
  */
