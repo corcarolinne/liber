@@ -29,7 +29,7 @@ app.get("/books",  (req, res) => {
 
 app.post('/post/registerBook', (req, res) => {
     registerBook(req.body.title, req.body.author)
-    res.send('root')
+    res.redirect('/')
 });
 
 /**
