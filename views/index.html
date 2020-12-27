@@ -15,13 +15,13 @@
 
 <!-- Bootstrap core JavaScript -->
 <script src="js/jquery.min.js"></script>
+
+<!--Function to show table with books-->
 <script>
     async function CreateTableFromJSON() {
         const myBooks = await fetch('https://8000-a9dbbf8d-6cd6-4910-996f-ed25785fa785.ws-eu03.gitpod.io/books')
             .then(res => res.json())
         
-        // EXTRACT VALUE FOR HTML HEADER. 
-        // ('Book ID', 'Book Name', 'Category' and 'Price')
         var col = [];
         
         for (var i = 0; i < myBooks.length; i++) {
@@ -31,16 +31,12 @@
                 }
             }
         }
-
-        // CREATE DYNAMIC TABLE.
         var table = document.createElement("table");
 
-        // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
-
-        var tr = table.insertRow(-1);                   // TABLE ROW.
+        var tr = table.insertRow(-1);
 
         for (var i = 0; i < col.length; i++) {
-            var th = document.createElement("th");      // TABLE HEADER.
+            var th = document.createElement("th");
             th.innerHTML = col[i];
             tr.appendChild(th);
         }
@@ -56,19 +52,19 @@
             }
         }
 
-        // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
         var divContainer = document.getElementById("showData");
         divContainer.innerHTML = "";
         divContainer.appendChild(table);
     }
 </script>
+
 <body>
     <h1>Liber</h1>
     <h2>Your online personal library</h2>
-    <input type="button" onclick="" value="Register Book" />
+    <input type="button" onclick="document.location='registerBookPage.html'" value="Register Book" />
     <input type="button" onclick="" value="Delete a Book" />
     <input type="button" onclick="" value="Update a Book" />
-    <input type="button" onclick="CreateTableFromJSON()" value="Create Table From JSON" />
+    <input type="button" onclick="CreateTableFromJSON()" value="Show books" />
     <p id="showData"></p>
 
 </body>
