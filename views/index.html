@@ -22,11 +22,11 @@
         const myBooks = await fetch('https://8000-a9dbbf8d-6cd6-4910-996f-ed25785fa785.ws-eu03.gitpod.io/books')
             .then(res => res.json())
         
-        var col = ['select', 'title', 'author'];
+        var col = ['title', 'author'];
 
         // creating table
         var table = document.createElement("table");
-        table.setAttribute('id', 'mTable');
+        table.id = "mtable"; 
 
         var tr = table.insertRow(-1);
 
@@ -37,29 +37,28 @@
             tr.appendChild(th);
         }
 
-        // ADD JSON DATA TO THE TABLE AS ROWS.
+        // adding json to table rows
         for (var i = 0; i < myBooks.length; i++) {
 
-            tr = table.insertRow(-1);
+            tr = table.insertRow(-1); 
+
+            tr.addEventListener('click', pickDataFromRow(myBooks[i]));
 
             for (var j = 0; j < col.length; j++) {
                 var newCell = tr.insertCell(-1);
-                if(j == 0) {
-                    var x = document.createElement("INPUT");
-                    x.setAttribute("type", "checkbox");
-                    newCell.appendChild(x);
-                } else {
-                   newCell.innerHTML = myBooks[i][col[j]]; 
-                }  
-            }
-        }
-
-        tr = table.insertRow(-1);           // Create the last row.
-
+                newCell.innerHTML = myBooks[i][col[j]]; 
+            }  
+        }         
+        
+        //var row = document.getElementById("mtable");
 
         var divContainer = document.getElementById("showData");
         divContainer.innerHTML = "";
         divContainer.appendChild(table);
+    }
+
+    const pickDataFromRow = (row) => (event) => {
+        console.log(row);
     }
 </script>
 
