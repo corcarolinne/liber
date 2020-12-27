@@ -22,7 +22,7 @@
         const myBooks = await fetch('https://8000-a9dbbf8d-6cd6-4910-996f-ed25785fa785.ws-eu03.gitpod.io/books')
             .then(res => res.json())
         
-        var col = ['title', 'author'];
+        var col = ['id','title', 'author'];
 
         // creating table
         var table = document.createElement("table");
@@ -49,8 +49,6 @@
                 newCell.innerHTML = myBooks[i][col[j]]; 
             }  
         }         
-        
-        //var row = document.getElementById("mtable");
 
         var divContainer = document.getElementById("showData");
         divContainer.innerHTML = "";

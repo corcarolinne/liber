@@ -1,66 +1,67 @@
 [
   {
+    "id": "0001",
     "title": "Unlocking Android",
     "author": "Robi Sen"
   },
   {
+    "id": "0002",
     "title": "Unlocking Android 2",
     "author": "W. Frank Ableson"
   },
   {
+    "id": "0003",
     "title": "Specification by Example",
     "author": "Gojko Adzic"
   },
   {
+    "id": "0004",
     "title": "Flex 3 in Action",
     "author": "Gojko Adzic"
   },
   {
+    "id": "0005",
     "title": "Flex 4 in Action",
     "author": "Tariq Ahmed"
   },
   {
+    "id": "0006",
     "title": "Collective Intelligence in Action",
     "author": "Satnam Alag"
   },
   {
+    "id": "0007",
     "title": "Zend Framework in Action",
     "author": "Nick Lo"
   },
   {
+    "id": "0008",
     "title": "Flex on Java",
     "author": "Bernerd Allmon"
   },
   {
+    "id": "0009",
     "title": "Griffon in Action",
     "author": "Andres Almiray"
   },
   {
+    "id": "0010",
     "title": "OSGi in Depth",
     "author": "Alexandre de Castro Alves"
   },
   {
+    "id": "0011",
     "title": "Flexible Rails",
     "author": "Peter Armstrong"
   },
   {
+    "id": "0012",
     "title": "Hello! Flex 4",
     "author": "Peter Armstrong"
   },
   {
+    "id": "0013",
     "title": "Coffeehouse",
     "author": "Levi Asher"
-  },
-  {
-    "title": "Harry Potter Vol.1",
-    "author": "J.K. Rowling"
-  },
-  {
-    "title": "Severina123",
-    "author": "kkk"
-  },
-  {
-    "title": "Severina123",
-    "author": "kkk"
   }
 ]
