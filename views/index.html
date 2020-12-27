@@ -35,7 +35,6 @@
             var th = document.createElement("th");
             th.innerHTML = col[i];
             tr.appendChild(th);
-            //tr.setAttribute('style', 'background-color:#777;color:#fff;');
         }
 
         // ADD JSON DATA TO THE TABLE AS ROWS.
@@ -67,10 +66,11 @@
 <body>
     <h1>Liber</h1>
     <h2>Your online personal library</h2>
-    <input type="button" onclick="document.location='registerBookPage.html'" value="Register Book" />
-    <input type="button" onclick="" value="Delete a Book" />
-    <input type="button" onclick="" value="Update a Book" />
-    <input type="button" onclick="CreateTableFromJSON()" value="Show books" />
+    <input type="button" onclick="CreateTableFromJSON()" value="Display Books" />
+    <input type="button" onclick="document.location='registerBookPage.html'" value="Add Book" />
+    <input type="button" onclick="" value="Delete" />
+    <input type="button" onclick="" value="Edit" />
+    
     <p id="showData"></p>
 
 </body>
