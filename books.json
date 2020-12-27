@@ -1,99 +1,58 @@
 [
   {
-    "id": "00001",
     "title": "Unlocking Android",
     "author": "Robi Sen"
   },
   {
-    "id": "00002",
     "title": "Unlocking Android 2",
     "author": "W. Frank Ableson"
   },
   {
-    "id": "00003",
     "title": "Specification by Example",
     "author": "Gojko Adzic"
   },
   {
-    "id": "00004",
     "title": "Flex 3 in Action",
     "author": "Gojko Adzic"
   },
   {
-    "id": "00005",
     "title": "Flex 4 in Action",
     "author": "Tariq Ahmed"
   },
   {
-    "id": "00006",
     "title": "Collective Intelligence in Action",
     "author": "Satnam Alag"
   },
   {
-    "id": "00007",
     "title": "Zend Framework in Action",
     "author": "Nick Lo"
   },
   {
-    "id": "00008",
     "title": "Flex on Java",
     "author": "Bernerd Allmon"
   },
   {
-    "id": "00009",
     "title": "Griffon in Action",
     "author": "Andres Almiray"
   },
   {
-    "id": "00010",
     "title": "OSGi in Depth",
     "author": "Alexandre de Castro Alves"
   },
   {
-    "id": "00011",
     "title": "Flexible Rails",
     "author": "Peter Armstrong"
   },
   {
-    "id": "00012",
     "title": "Hello! Flex 4",
     "author": "Peter Armstrong"
   },
   {
-    "id": "00013",
     "title": "Coffeehouse",
     "author": "Levi Asher"
   },
   {
-    "title": "sks",
-    "author": "sdfjskd"
-  },
-  {
-    "title": "89fjdfk",
-    "author": "gfdgdgf"
-  },
-  {
-    "title": "test",
-    "author": "testuhu"
-  },
-  {
-    "title": "aaaaabb",
-    "author": "bbbbaa"
-  },
-  {
-    "title": "cuuu",
-    "author": "caaa"
-  },
-  {
-    "title": "tttt",
-    "author": "eeee"
-  },
-  {
-    "title": "aaarrr",
-    "author": "rrr"
-  },
-  {
-    "title": "carol",
-    "author": "porca"
+    "title": "Harry Potter Vol.1",
+    "author": "J.K. Rowling"
   }
 ]
