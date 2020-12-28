@@ -6,6 +6,8 @@
 const express = require("express");
 const path = require("path");
 const showBooks = require('./showBooks')
+const deleteBook = require('./deleteBook')
+const updateBook = require('./updateBook')
 const registerBook = require('./registerBook')
 const bodyParser = require('body-parser');
 /**
@@ -19,6 +21,7 @@ const app = express();
 const port = process.env.PORT || "8000";
 app.use(express.static(path.resolve(__dirname, 'views'))); 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ type: ["application/json", "application/csp-report"] }));
 /**
  * Routes Definitions
  */
@@ -32,6 +35,15 @@ app.post('/post/registerBook', (req, res) => {
     res.redirect('/')
 });
 
+app.delete('/delete/:id', (req, res) => {
+    deleteBook(req.params.id)
+    res.send('Do you need to return something after you delete? are you sure?')
+})
+
+app.put('/update/:id', (req, res) => {
+    updateBook(req.params.id, req.body)
+    res.send('Do you need to return something after you update? are you sure?')
+})
 /**
  * Server Activation
  */

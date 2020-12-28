@@ -18,7 +18,8 @@
 
 <!--Function to show table with books-->
 <script>
-    async function CreateTableFromJSON() {
+    var book;
+    async function createTableFromJSON() {
         const myBooks = await fetch('https://8000-a9dbbf8d-6cd6-4910-996f-ed25785fa785.ws-eu03.gitpod.io/books')
             .then(res => res.json())
         
@@ -56,17 +57,54 @@
     }
 
     const pickDataFromRow = (row) => (event) => {
-        console.log(row);
+        // save data in a object
+        book = row;
+        console.log(book);
+    }
+
+    function deleteBook() {
+        // pick id from book to delete
+        var bookToDelete = book.id;
+        // console.log(bookToDelete);
+
+        fetch(`https://8000-a9dbbf8d-6cd6-4910-996f-ed25785fa785.ws-eu03.gitpod.io/delete/${bookToDelete}`, {
+            method: 'DELETE',
+        })
+        .then(res => res.text()) // or res.json()
+        .then(res => {
+            // do you need to do something on the frontend after something is deleted? are you sure?
+            console.log(res)
+        })
+    }
+
+    function updateBook() {        
+        var bookToUpdate = book.id;
+
+        fetch(`https://8000-a9dbbf8d-6cd6-4910-996f-ed25785fa785.ws-eu03.gitpod.io/update/${bookToUpdate}`, {
+            method: 'PUT',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: 'new value goes here',
+                author: 'new value goes here'
+            })
+        })
+        .then(res => res.text()) // or res.json()
+        .then(res => {
+            // do you need to do something on the frontend after something is updated? are you sure?
+            console.log(res)
+        })
     }
 </script>
 
 <body>
     <h1>Liber</h1>
     <h2>Your online personal library</h2>
-    <input type="button" onclick="CreateTableFromJSON()" value="Display Books" />
-    <input type="button" onclick="document.location='registerBookPage.html'" value="Add Book" />
-    <input type="button" onclick="" value="Delete" />
-    <input type="button" onclick="" value="Edit" />
+    <input type="button" onclick="createTableFromJSON()" value="Display Books" >
+    <input type="button" onclick="document.location='registerBookPage.html'"value="Add Book" />
+    <input type="button" onclick="deleteBook()" value="Delete" />
+    <input type="button" onclick="updateBook()" value="Edit" />
     
     <p id="showData"></p>
 
