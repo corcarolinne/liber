@@ -65,14 +65,12 @@
     function deleteBook() {
         // pick id from book to delete
         var bookToDelete = book.id;
-        // console.log(bookToDelete);
 
         fetch(`https://8000-a9dbbf8d-6cd6-4910-996f-ed25785fa785.ws-eu03.gitpod.io/delete/${bookToDelete}`, {
             method: 'DELETE',
         })
         .then(res => res.text()) // or res.json()
         .then(res => {
-            // do you need to do something on the frontend after something is deleted? are you sure?
             console.log(res)
         })
     }

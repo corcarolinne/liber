@@ -37,7 +37,7 @@ app.post('/post/registerBook', (req, res) => {
 
 app.delete('/delete/:id', (req, res) => {
     deleteBook(req.params.id)
-    res.send('Do you need to return something after you delete? are you sure?')
+    res.send('sucessfully delete')
 })
 
 app.put('/update/:id', (req, res) => {
