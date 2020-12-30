@@ -46,7 +46,6 @@ app.delete('/delete/:id', (req, res) => {
 
 app.put('/update/:id', (req, res) => {
     updateBook(req.params.id, req.body)
-    res.send('Do you need to return something after you update? are you sure?')
 })
 /**
  * Server Activation
