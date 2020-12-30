@@ -60,6 +60,13 @@
         // save data in a object
         book = row;
         console.log(book);
+        var editButton = document.getElementById('editButton') || document.createElement('a')
+        editButton.id = 'editButton'
+        editButton.href = '/edit?id=' + row.id + '&author=' + row.author + '&title=' + row.title
+        editButton.innerHTML = "Edit"
+
+        var divContainer = document.getElementById("buttons");
+        divContainer.appendChild(editButton);
     }
 
     function deleteBook() {
@@ -74,36 +81,17 @@
             console.log(res)
         })
     }
-
-    function updateBook() {        
-        var bookToUpdate = book.id;
-
-        fetch(`https://8000-a9dbbf8d-6cd6-4910-996f-ed25785fa785.ws-eu03.gitpod.io/update/${bookToUpdate}`, {
-            method: 'PUT',
-            headers: {
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                title: 'new value goes here',
-                author: 'new value goes here'
-            })
-        })
-        .then(res => res.text()) // or res.json()
-        .then(res => {
-            // do you need to do something on the frontend after something is updated? are you sure?
-            console.log(res)
-        })
-    }
 </script>
 
 <body>
     <h1>Liber</h1>
     <h2>Your online personal library</h2>
-    <input type="button" onclick="createTableFromJSON()" value="Display Books" >
-    <input type="button" onclick="document.location='registerBookPage.html'"value="Add Book" />
-    <input type="button" onclick="deleteBook()" value="Delete" />
-    <input type="button" onclick="updateBook()" value="Edit" />
-    
+    <div id="buttons">
+        <input type="button" onclick="createTableFromJSON()" value="Display Books" >
+        <input type="button" onclick="document.location='registerBookPage.html'"value="Add Book" />
+        <input type="button" onclick="deleteBook()" value="Delete" />
+    </div>
+
     <p id="showData"></p>
 
 </body>

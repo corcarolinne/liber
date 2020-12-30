@@ -30,6 +30,10 @@ app.get("/books",  (req, res) => {
    res.json(showBooks())
 });
 
+app.get("/edit", (req, res) => {
+    res.sendFile(__dirname+"/views/updateBookPage.html")
+});
+
 app.post('/post/registerBook', (req, res) => {
     registerBook(req.body.title, req.body.author)
     res.redirect('/')

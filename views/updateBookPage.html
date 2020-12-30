@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Update Book</h2>
+
+
+  <label for="title">Title:</label><br>
+  <input type="text" id="title" name="title" value=""><br>
+  <label for="author">Author:</label><br>
+  <input type="text" id="author" name="author" value=""><br><br>
+  <button type="submit" onclick="updateBook()">Submit</button>
+
+</body>
+
+<script>
+        var getParams = function (url) {
+            var params = {};
+            var parser = document.createElement('a');
+            parser.href = url;
+            var query = parser.search.substring(1);
+            var vars = query.split('&');
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split('=');
+                params[pair[0]] = decodeURIComponent(pair[1]);
+            }
+            return params;
+        };
+
+        var initialValues = getParams(location.search)
+        document.getElementById('title').value = initialValues.title
+        document.getElementById('author').value = initialValues.author
+
+         function updateBook() {        
+        var bookToUpdate = initialValues.id;
+
+        fetch(`https://8000-a9dbbf8d-6cd6-4910-996f-ed25785fa785.ws-eu03.gitpod.io/update/${bookToUpdate}`, {
+            method: 'PUT',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: document.getElementById('title').value,
+                author: document.getElementById('author').value
+            })
+        })
+        .then(res => res.text()) // or res.json()
+        .then(res => {
+            // do you need to do something on the frontend after something is updated? are you sure?
+            console.log(res)
+        })
+    }
+    </script>
+</html>
