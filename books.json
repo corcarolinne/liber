@@ -1,71 +1,67 @@
 [
   {
-    "id": "0001",
+    "id": "_r8kok8k87",
     "title": "Unlocking Android",
     "author": "Robin Sen"
   },
   {
-    "id": "0002",
+    "id": "_r8kok8kn09",
     "title": "Unlocking Android 2",
     "author": "W. Frank Ableson"
   },
   {
-    "id": "0003",
+    "id": "_r8kok8k98",
     "title": "Specification by Example",
     "author": "Gojko Adzic"
   },
   {
-    "id": "0004",
+    "id": "_r8kok8ki0",
     "title": "Flex 3 in Action",
     "author": "Gojko Adzic"
   },
   {
-    "id": "0005",
+    "id": "_r8kok8kl0",
     "title": "Flex 4 in Action",
     "author": "Tariq Ahmed"
   },
   {
-    "id": "0006",
+    "id": "_r0kok8kn6",
     "title": "Collective Intelligence in Action",
     "author": "Satnam Alag"
   },
   {
-    "id": "0007",
+    "id": "_p8kok8kn6",
     "title": "Zend Framework in Action",
     "author": "Nick Lo"
   },
   {
-    "id": "0008",
+    "id": "_r8kok8kn8",
     "title": "Flex on Java",
     "author": "Bernerd Allmon"
   },
   {
-    "id": "0009",
+    "id": "_r8kok8kn7",
     "title": "Griffon in Action",
     "author": "Andres Almiray"
   },
   {
-    "id": "0010",
+    "id": "_r8kok8kn2",
     "title": "OSGi in Depth",
     "author": "Alexandre de Castro Alves"
   },
   {
-    "id": "0011",
+    "id": "_r8kok8kn1",
     "title": "Flexible Rails",
     "author": "Peter Armstrong"
   },
   {
-    "id": "0012",
+    "id": "_r8kok8kn9",
     "title": "Hello! Flex 4",
     "author": "Peter Armstrong"
   },
   {
-    "id": "0013",
+    "id": "_r8kok8kn0",
     "title": "Coffeehouse",
     "author": "Levi Asher"
-  },
-  {
-    "title": "JavaScript ES6",
-    "author": "Robin Sen"
   }
 ]

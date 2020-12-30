@@ -13,18 +13,29 @@ module.exports = registerBook = (title, author) => {
 function addBook(title, author) {
     // declarating array to hold books data
     let booksInFile = [];
+
+    var alreadyExists =  true 
+    
     // defining new book 
     let book = { 
+        id: '_' + Math.random().toString(36).substr(2, 9), // to generate random ids automatically
         title: `${title}`, 
         author: `${author}` 
     }; 
+
     // Read books.json file
     fs.readFile("./books.json", function(err, data) {
         // Check for errors 
         if (err) throw err; 
         // Converting to JSON books already recorded
         booksInFile = JSON.parse(data);
-        // including new borrowing in the array
+
+         // logic to make sure ids are always different
+        while (alreadyExists) {
+            var newId = '_' + Math.random().toString(36).substr(2, 9)
+            alreadyExists = !!booksInFile.find(book => book.id === newId)
+        }
+        // including new book in the array
         booksInFile.push(book);
         // rewriting borrowings file
        fs.writeFile('./books.json', JSON.stringify(booksInFile, null, "  "), err => {
