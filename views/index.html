@@ -31,7 +31,9 @@
 
         // creating table
         var table = document.createElement("table");
-        table.id = "mtable"; 
+        table.className = "container table table table-hover";
+        //table.className = "test";
+
 
         var tr = table.insertRow(-1);
 
@@ -98,8 +100,8 @@
             <input type="button" onclick="document.location='registerBookPage.html'"value="Add Book" />
             <input type="button" onclick="deleteBook()" value="Delete" />
         </div>
-    <p id="showData"></p>
-
+        <p id="showData"></p>
+    <footer>Made with ❤ by Carolinne Cordeiro</footer>
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+
 .header {
     text-align: center;
     font-family: 'Roboto', sans-serif;
@@ -12,4 +13,20 @@
 .header-buttons {
     text-align: center;
     font-family: 'Roboto', sans-serif;
+    margin-bottom: 50px;
+}
+
+.table {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    max-width: 70% !important;
+}
+.table th {
+    background-color: F2F2F2;
+    text-align: center;
+}
+footer {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
 }
