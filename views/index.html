@@ -1,16 +1,20 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>Liber</title>
+    
+    <!--CSS import-->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Expletus+Sans&family=Roboto&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <!-- Bootstrap core JavaScript -->
@@ -84,14 +88,16 @@
 </script>
 
 <body>
-    <h1>Liber</h1>
-    <h2>Your online personal library</h2>
-    <div id="buttons">
-        <input type="button" onclick="createTableFromJSON()" value="Display Books" >
-        <input type="button" onclick="document.location='registerBookPage.html'"value="Add Book" />
-        <input type="button" onclick="deleteBook()" value="Delete" />
+    <div class="container header">
+        <img src="logo.jfif" alt="liber logo: book open" width="150" height="100">
+        <h1 class="logo">Liber</h1>
+        <h3>Your online personal library</h3>
     </div>
-
+        <div class="container header-buttons">
+            <input type="button" onclick="createTableFromJSON()" value="Display Books" >
+            <input type="button" onclick="document.location='registerBookPage.html'"value="Add Book" />
+            <input type="button" onclick="deleteBook()" value="Delete" />
+        </div>
     <p id="showData"></p>
 
 </body>

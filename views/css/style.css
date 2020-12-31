@@ -1,0 +1,15 @@
+.header {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-family: 'Expletus Sans', cursive;
+}
+
+.header-buttons {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
