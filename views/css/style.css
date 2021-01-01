@@ -30,6 +30,21 @@
     background-color: F2F2F2;
     text-align: center;
 }
+
+.form-group {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+.update-form {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-title {
+    margin-bottom: 20px;
+}
+
+
 footer {
     margin-top: 50px;
     margin-bottom: 30px;
