@@ -62,11 +62,16 @@
         divContainer.appendChild(table);
     }
 
+    window.onload = () => {
+        createTableFromJSON()
+    }
+
     const pickDataFromRow = (row) => (event) => {
         // save data in a object
         book = row;
         console.log(book);
-        var editButton = document.getElementById('editButton') || document.createElement('a')
+        var editButton = document.getElementById('editButton') ||
+        document.createElement('a')
         editButton.id = 'editButton'
         editButton.href = '/edit?id=' + row.id + '&author=' + row.author + '&title=' + row.title
         editButton.innerHTML = "Edit"
@@ -93,9 +98,9 @@
     <div class="container header">
         <img src="logo.jfif" alt="liber logo: book open" width="150" height="100">
         <h1 class="logo">Liber</h1>
-        <h3>Your online personal library</h3>
+        <h4 class="slogan">Your online personal library</h4>
     </div>
-        <div class="container header-buttons">
+        <div class="container header-buttons" id="buttons">
             <input type="button" onclick="createTableFromJSON()" value="Display Books" >
             <input type="button" onclick="document.location='registerBookPage.html'"value="Add Book" />
             <input type="button" onclick="deleteBook()" value="Delete" />

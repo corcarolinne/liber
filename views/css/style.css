@@ -8,12 +8,17 @@
 
 .logo {
     font-family: 'Expletus Sans', cursive;
+    font-size: 70px;
 }
 
 .header-buttons {
     text-align: center;
     font-family: 'Roboto', sans-serif;
     margin-bottom: 50px;
+}
+.slogan {
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 .table {
