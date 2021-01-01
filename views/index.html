@@ -89,6 +89,7 @@
         })
         .then(res => res.text()) // or res.json()
         .then(res => {
+            location.reload()
             console.log(res)
         })
     }
