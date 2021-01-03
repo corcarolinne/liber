@@ -1,113 +1,104 @@
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Liber</title>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Liber</title>
     
-    <!--CSS import-->
-    <link rel="stylesheet" href="./css/style.css">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <!--Google Fonts-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Expletus+Sans&family=Roboto&display=swap" rel="stylesheet">
+        <!--CSS-->
+        <link rel="stylesheet" href="./css/style.css">
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <!--Google Fonts-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Expletus+Sans&family=Roboto&display=swap" rel="stylesheet">
+    </head>
 
-</head>
+    <script>
+        var book;
+        // function to create table with books
+        async function createTable() {
+            const myBooks = await fetch('https://8000-a9dbbf8d-6cd6-4910-996f-ed25785fa785.ws-eu03.gitpod.io/books')
+                .then(res => res.json())
+            
+            // defining column names
+            var col = ['id','title', 'author'];
+            // creating table
+            var table = document.createElement("table");
+            table.className = "container table table table-hover";
+            // inserting row
+            var tr = table.insertRow(-1);
 
-<!-- Bootstrap core JavaScript -->
-<script src="js/jquery.min.js"></script>
-
-<!--Function to show table with books-->
-<script>
-    var book;
-    async function createTableFromJSON() {
-        const myBooks = await fetch('https://8000-a9dbbf8d-6cd6-4910-996f-ed25785fa785.ws-eu03.gitpod.io/books')
-            .then(res => res.json())
-        
-        var col = ['id','title', 'author'];
-
-        // creating table
-        var table = document.createElement("table");
-        table.className = "container table table table-hover";
-        //table.className = "test";
-
-
-        var tr = table.insertRow(-1);
-
-        // creating header
-        for (var i = 0; i < col.length; i++) {
-            var th = document.createElement("th");
-            th.innerHTML = col[i];
-            tr.appendChild(th);
+            // creating table header
+            for (var i = 0; i < col.length; i++) {
+                var th = document.createElement("th");
+                th.innerHTML = col[i];
+                tr.appendChild(th);
+            }
+            // adding json to table rows
+            for (var i = 0; i < myBooks.length; i++) {
+                tr = table.insertRow(-1); 
+                tr.addEventListener('click', pickDataFromRow(myBooks[i]));
+                for (var j = 0; j < col.length; j++) {
+                    var newCell = tr.insertCell(-1);
+                    newCell.innerHTML = myBooks[i][col[j]]; 
+                }  
+            }         
+            // appening table and table data to view
+            var divContainer = document.getElementById("showData");
+            divContainer.innerHTML = "";
+            divContainer.appendChild(table);
         }
 
-        // adding json to table rows
-        for (var i = 0; i < myBooks.length; i++) {
+        // showing table on load
+        window.onload = () => {
+            createTable()
+        }
 
-            tr = table.insertRow(-1); 
+        // function to show pick data from table row when selected
+        const pickDataFromRow = (row) => (event) => {
+            // save data in a object
+            book = row;
+            // creating edit button
+            var editButton = document.getElementById('editButton') ||
+            document.createElement('a')
+            editButton.id = 'editButton'
+            editButton.href = '/edit?id=' + row.id + '&author=' + row.author + '&title=' + row.title
+            editButton.innerHTML = "Edit"
+            // appending edit button
+            var divContainer = document.getElementById("buttons");
+            divContainer.appendChild(editButton);
+        }
 
-            tr.addEventListener('click', pickDataFromRow(myBooks[i]));
+        // function to delete book 
+        function deleteBook() {
+            // pick id from book to delete
+            var bookToDelete = book.id;
+            fetch(`https://8000-a9dbbf8d-6cd6-4910-996f-ed25785fa785.ws-eu03.gitpod.io/delete/${bookToDelete}`, {
+                method: 'DELETE',
+            })
+            .then(res => res.text()) // or res.json()
+            .then(res => {
+                location.reload()
+                console.log(res)
+            })
+        }
+    </script>
 
-            for (var j = 0; j < col.length; j++) {
-                var newCell = tr.insertCell(-1);
-                newCell.innerHTML = myBooks[i][col[j]]; 
-            }  
-        }         
-
-        var divContainer = document.getElementById("showData");
-        divContainer.innerHTML = "";
-        divContainer.appendChild(table);
-    }
-
-    window.onload = () => {
-        createTableFromJSON()
-    }
-
-    const pickDataFromRow = (row) => (event) => {
-        // save data in a object
-        book = row;
-        console.log(book);
-        var editButton = document.getElementById('editButton') ||
-        document.createElement('a')
-        editButton.id = 'editButton'
-        editButton.href = '/edit?id=' + row.id + '&author=' + row.author + '&title=' + row.title
-        editButton.innerHTML = "Edit"
-
-        var divContainer = document.getElementById("buttons");
-        divContainer.appendChild(editButton);
-    }
-
-    function deleteBook() {
-        // pick id from book to delete
-        var bookToDelete = book.id;
-
-        fetch(`https://8000-a9dbbf8d-6cd6-4910-996f-ed25785fa785.ws-eu03.gitpod.io/delete/${bookToDelete}`, {
-            method: 'DELETE',
-        })
-        .then(res => res.text()) // or res.json()
-        .then(res => {
-            location.reload()
-            console.log(res)
-        })
-    }
-</script>
-
-<body>
-    <div class="container header">
-        <img src="logo.jfif" alt="liber logo: book open" width="150" height="100">
-        <h1 class="logo">Liber</h1>
-        <h4 class="slogan">Your online personal library</h4>
-    </div>
+    <body>
+        <div class="container header">
+            <img src="logo.jfif" alt="liber logo: book open" width="150" height="100">
+            <h1 class="logo">Liber</h1>
+            <h4 class="slogan">Your online personal library</h4>
+        </div>
         <div class="container header-buttons" id="buttons">
-            <input type="button" onclick="createTableFromJSON()" value="Home" >
+            <input type="button" onclick="createTable()" value="Home" >
             <input type="button" onclick="document.location='registerBookPage.html'"value="Add Book" />
             <input type="button" onclick="deleteBook()" value="Delete" />
         </div>
         <p id="showData"></p>
-    <footer>Made with ❤ by Carolinne Cordeiro</footer>
-</body>
-
+        <footer>Made with ❤ by Carolinne Cordeiro</footer>
+    </body>
 </html>

@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Liber</title>
-    
-    <!--CSS import-->
-    <link rel="stylesheet" href="./css/style.css">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <!--Google Fonts-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Expletus+Sans&family=Roboto&display=swap" rel="stylesheet">
-
-</head>
-<body>
-    <div class="container header">
-        <img src="logo.jfif" alt="liber logo: book open" width="150" height="100">
-        <h1 class="logo">Liber</h1>
-        <h4 class="slogan">Your online personal library</h4>
-    </div>
-    <div class="container header-buttons" id="buttons">
-        <input type="button" onclick="document.location='index.html'" value="Home">
-        <input type="button" onclick="document.location='registerBookPage.html'"value="Add Book" />
-        <input type="button" onclick="deleteBook()" value="Delete" />
-    </div>
-    <p id="showData"></p>
-    <div class="container update-form">
-        <h2 class="form-title">Update Book</h2>
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title" value=""><br>
-        <label for="author">Author:</label><br>
-        <input type="text" id="author" name="author" value=""><br><br>
-        <button type="submit" onclick="updateBook()">Submit</button>
-    </div>
-</body>
-
-<script>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Liber</title>
+        
+        <!--CSS-->
+        <link rel="stylesheet" href="./css/style.css">
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <!--Google Fonts-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Expletus+Sans&family=Roboto&display=swap" rel="stylesheet">
+    </head>
+        <body>
+        <div class="container header">
+            <img src="logo.jfif" alt="liber logo: book open" width="150" height="100">
+            <h1 class="logo">Liber</h1>
+            <h4 class="slogan">Your online personal library</h4>
+        </div>
+        <div class="container header-buttons" id="buttons">
+            <input type="button" onclick="document.location='index.html'" value="Home">
+            <input type="button" onclick="document.location='registerBookPage.html'"value="Add Book" />
+            <input type="button" onclick="deleteBook()" value="Delete" />
+        </div>
+        <p id="showData"></p>
+        <div class="container update-form">
+            <h2 class="form-title">Update Book</h2>
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title" value=""><br>
+            <label for="author">Author:</label><br>
+            <input type="text" id="author" name="author" value=""><br><br>
+            <button type="submit" onclick="updateBook()">Submit</button>
+        </div>
+    </body>
+    <script>
+        // function to get parameters from URL to make update happen
         var getParams = function (url) {
             var params = {};
             var parser = document.createElement('a');
@@ -51,29 +50,28 @@
             }
             return params;
         };
-
         var initialValues = getParams(location.search)
         document.getElementById('title').value = initialValues.title
         document.getElementById('author').value = initialValues.author
 
-         function updateBook() {        
-        var bookToUpdate = initialValues.id;
-
-        fetch(`https://8000-a9dbbf8d-6cd6-4910-996f-ed25785fa785.ws-eu03.gitpod.io/update/${bookToUpdate}`, {
-            method: 'PUT',
-            headers: {
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                title: document.getElementById('title').value,
-                author: document.getElementById('author').value
+        // function to update book
+        function updateBook() {        
+            var bookToUpdate = initialValues.id;
+            fetch(`https://8000-a9dbbf8d-6cd6-4910-996f-ed25785fa785.ws-eu03.gitpod.io/update/${bookToUpdate}`, {
+                method: 'PUT',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title: document.getElementById('title').value,
+                    author: document.getElementById('author').value
+                })
             })
-        })
-        .then(res => res.text()) // or res.json()
-        .then(res => {
-            console.log(res)
-            window.location = '/'
-        })
+            .then(res => res.text())
+            .then(res => {
+                console.log(res)
+                window.location = '/'
+            })
     }
     </script>
 </html>

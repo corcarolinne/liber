@@ -1,8 +1,5 @@
-// index.js
 
-/**
- * Required External Modules
- */
+// modules
 const express = require("express");
 const path = require("path");
 const showBooks = require('./showBooks')
@@ -10,22 +7,15 @@ const deleteBook = require('./deleteBook')
 const updateBook = require('./updateBook')
 const registerBook = require('./registerBook')
 const bodyParser = require('body-parser');
-/**
- * App Variables
- */
 
-/**
- *  App Configuration
- */
+// app configuration
 const app = express();
 const port = process.env.PORT || "8000";
 app.use(express.static(path.resolve(__dirname, 'views'))); 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ type: ["application/json", "application/csp-report"] }));
-/**
- * Routes Definitions
- */
 
+// routes
 app.get("/books",  (req, res) => {
    res.json(showBooks())
 });
@@ -47,9 +37,8 @@ app.delete('/delete/:id', (req, res) => {
 app.put('/update/:id', (req, res) => {
     updateBook(req.params.id, req.body)
 })
-/**
- * Server Activation
- */
+
+// server activation
 app.listen(port, () => {
   console.log(`Listening to requests on http://localhost:${port}`);
 });
