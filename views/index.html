@@ -20,7 +20,7 @@
         var book;
         // function to create table with books
         async function createTable() {
-            const myBooks = await fetch('https://8000-a9dbbf8d-6cd6-4910-996f-ed25785fa785.ws-eu03.gitpod.io/books')
+            const myBooks = await fetch('https://8000-lavender-squirrel-n5c1x3gc.ws-us03.gitpod.io/books')
                 .then(res => res.json())
             
             // defining column names
@@ -76,7 +76,7 @@
         function deleteBook() {
             // pick id from book to delete
             var bookToDelete = book.id;
-            fetch(`https://8000-a9dbbf8d-6cd6-4910-996f-ed25785fa785.ws-eu03.gitpod.io/delete/${bookToDelete}`, {
+            fetch(`https://8000-lavender-squirrel-n5c1x3gc.ws-us03.gitpod.io/delete/${bookToDelete}`, {
                 method: 'DELETE',
             })
             .then(res => res.text()) // or res.json()
