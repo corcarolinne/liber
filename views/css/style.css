@@ -30,6 +30,9 @@
     background-color: F2F2F2;
     text-align: center;
 }
+.table tr {
+    cursor: pointer;
+}
 
 .form-group {
     text-align: center;
