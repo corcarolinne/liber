@@ -2,10 +2,10 @@
 // modules
 const express = require("express");
 const path = require("path");
-const showBooks = require('./showBooks')
-const deleteBook = require('./deleteBook')
-const updateBook = require('./updateBook')
-const registerBook = require('./registerBook')
+const showBooks = require('./controllers/showBooks')
+const deleteBook = require('./controllers/deleteBook')
+const updateBook = require('./controllers/updateBook')
+const registerBook = require('./controllers/registerBook')
 const bodyParser = require('body-parser');
 
 // app configuration

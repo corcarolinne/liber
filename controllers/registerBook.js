@@ -1,5 +1,5 @@
 // imports
-const books = require('./books.json');
+const books = require('../books.json');
 const fs = require("fs"); 
 
 // exports function that calls a function that receives title and author entered by the user
