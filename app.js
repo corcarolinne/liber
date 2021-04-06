@@ -1,12 +1,16 @@
-
-// modules
+const http = require('http'),
+const logger = require('morgan'),
+const cors = require('cors'),
 const express = require("express");
 const path = require("path");
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
 const showBooks = require('./controllers/showBooks')
 const deleteBook = require('./controllers/deleteBook')
 const updateBook = require('./controllers/updateBook')
 const registerBook = require('./controllers/registerBook')
-const bodyParser = require('body-parser');
+
 
 // app configuration
 const app = express();
