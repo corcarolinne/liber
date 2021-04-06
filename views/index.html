@@ -18,9 +18,11 @@
 
     <script>
         var book;
+        var currentUrl = window.location.href;
         // function to create table with books
         async function createTable() {
-            const myBooks = await fetch('https://8000-lavender-squirrel-n5c1x3gc.ws-us03.gitpod.io/books')
+            console.log(currentUrl);
+            const myBooks = await fetch(currentUrl + '/books')
                 .then(res => res.json())
             
             // defining column names
@@ -61,22 +63,23 @@
         const pickDataFromRow = (row) => (event) => {
             // save data in a object
             book = row;
-            // creating edit button
-            var editButton = document.getElementById('editButton') ||
-            document.createElement('a')
-            editButton.id = 'editButton'
-            editButton.href = '/edit?id=' + row.id + '&author=' + row.author + '&title=' + row.title
-            editButton.innerHTML = "Edit"
-            // appending edit button
-            var divContainer = document.getElementById("buttons");
-            divContainer.appendChild(editButton);
+            // // creating edit button
+            // var editButton = document.getElementById('editButton') ||
+            // document.createElement('a')
+            // editButton.id = 'editButton'
+            // editButton.href = '/edit?id=' + row.id + '&author=' + row.author + '&title=' + row.title
+            // editButton.innerHTML = "Edit"
+            // // appending edit button
+            // var divContainer = document.getElementById("buttons");
+            // divContainer.appendChild(editButton);
         }
 
         // function to delete book 
         function deleteBook() {
+            console.log('entra aqui');
             // pick id from book to delete
             var bookToDelete = book.id;
-            fetch(`https://8000-lavender-squirrel-n5c1x3gc.ws-us03.gitpod.io/delete/${bookToDelete}`, {
+            fetch(currentUrl +`/delete/${bookToDelete}`, {
                 method: 'DELETE',
             })
             .then(res => res.text()) // or res.json()
@@ -94,7 +97,7 @@
             <h4 class="slogan">Your online personal library</h4>
         </div>
         <div class="container header-buttons" id="buttons">
-            <input type="button" onclick="createTable()" value="Home" >
+            <input type="button" onclick="createTable()" value="Home" />
             <input type="button" onclick="document.location='registerBookPage.html'"value="Add Book" />
             <input type="button" onclick="deleteBook()" value="Delete" />
         </div>

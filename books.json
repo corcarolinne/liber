@@ -1,15 +1,5 @@
 [
   {
-    "id": "_r8kok8kn09",
-    "title": "Unlocking Android 2",
-    "author": "W. Frank Ableson"
-  },
-  {
-    "id": "_r8kok8k98",
-    "title": "Specification by Example",
-    "author": "Gojko Adzic"
-  },
-  {
     "id": "_r8kok8ki0",
     "title": "Flex 3 in Action",
     "author": "Gojko Adzic"
@@ -58,5 +48,10 @@
     "id": "_dzx589pcy",
     "title": "HP and The Askaban Prisioner",
     "author": "J.K. Rowling"
+  },
+  {
+    "id": "_dpomxxexg",
+    "title": "Paisagem",
+    "author": "Tarsila do Amaral"
   }
 ]

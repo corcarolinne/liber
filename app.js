@@ -20,10 +20,6 @@ app.get("/books",  (req, res) => {
    res.json(showBooks())
 });
 
-app.get("/edit", (req, res) => {
-    res.sendFile(__dirname+"/views/updateBookPage.html")
-});
-
 app.post('/post/registerBook', (req, res) => {
     registerBook(req.body.title, req.body.author)
     res.redirect('/')
@@ -31,12 +27,18 @@ app.post('/post/registerBook', (req, res) => {
 
 app.delete('/delete/:id', (req, res) => {
     deleteBook(req.params.id)
-    res.send('sucessfully delete')
+    res.send('sucessfully deleted')
 })
 
-app.put('/update/:id', (req, res) => {
-    updateBook(req.params.id, req.body)
-})
+// app.get("/edit", (req, res) => {
+//     res.sendFile(__dirname+"/views/updateBookPage.html")
+//     res.send('sucessfully updated')
+//     res.redirect('/')
+// });
+
+// app.put('/update/:id', (req, res) => {
+//     updateBook(req.params.id, req.body)
+// })
 
 // server activation
 app.listen(port, () => {
