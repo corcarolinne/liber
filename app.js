@@ -6,15 +6,16 @@ const path = require("path");
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const showBooks = require('./controllers/showBooks')
-const deleteBook = require('./controllers/deleteBook')
-const updateBook = require('./controllers/updateBook')
-const registerBook = require('./controllers/registerBook')
+const showBooks = require('./controllers/deleteBook.js')
+const deleteBook = require('./controllers/deleteBook.js')
+const updateBook = require('./controllers/deleteBook.js')
+const registerBook = require('./controllers/deleteBook.js')
 
 
 // app configuration
 const app = express();
 const port = process.env.PORT || "8000";
+app.use(logger('tiny'));
 app.use(express.static(path.resolve(__dirname, 'views'))); 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ type: ["application/json", "application/csp-report"] }));
