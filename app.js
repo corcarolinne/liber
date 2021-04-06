@@ -6,10 +6,10 @@ const path = require("path");
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const showBooks = require('./controllers/deleteBook.js')
+const showBooks = require('./controllers/showBooks.js')
 const deleteBook = require('./controllers/deleteBook.js')
-const updateBook = require('./controllers/deleteBook.js')
-const registerBook = require('./controllers/deleteBook.js')
+const updateBook = require('./controllers/updateBook.js')
+const registerBook = require('./controllers/registerBook.js')
 
 
 // app configuration
