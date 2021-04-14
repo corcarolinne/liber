@@ -1,25 +1,22 @@
 {
   "name": "liber",
   "version": "1.0.0",
-  "description": "",
+  "description": "Liber",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon ./index.js"
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/corcarolinne/liber.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Carolinne",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/corcarolinne/liber/issues"
   },
   "homepage": "https://github.com/corcarolinne/liber#readme",
-  "devDependencies": {
-    "nodemon": "^2.0.6"
-  },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
