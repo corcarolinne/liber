@@ -14,7 +14,7 @@ const registerBook = require('./controllers/registerBook.js')
 
 // app configuration
 const app = express();
-const port = process.env.PORT || "8000";
+const port = process.env.PORT || 8000;
 app.use(logger('tiny'));
 app.use(express.static(path.resolve(__dirname, 'views'))); 
 app.use(bodyParser.urlencoded({ extended: true }));
