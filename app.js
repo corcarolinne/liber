@@ -44,8 +44,15 @@ app.delete('/delete/:id', (req, res) => {
 // app.put('/update/:id', (req, res) => {
 //     updateBook(req.params.id, req.body)
 // })
-
+     
 // server activation
 app.listen(port, () => {
   console.log(`Listening to requests on http://localhost:${port}`);
 });
+
+const dbURI = "mongodb+srv://test:cctdublin2020@cluster0.ay5gh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+        .then((result) => console.log('connected to db'))
+        .catch((err) => console.log(err));
+   
