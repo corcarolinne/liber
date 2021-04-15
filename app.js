@@ -6,11 +6,14 @@ const path = require("path");
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const showBooks = require('./controllers/showBooks.js')
+// const showBooks = require('./controllers/showBooks.js')
 const deleteBook = require('./controllers/deleteBook.js')
 const updateBook = require('./controllers/updateBook.js')
 const registerBook = require('./controllers/registerBook.js')
 
+// last added
+//const router = express.Router();
+const bookCtrl = require('./book-controller');
 
 // app configuration
 const app = express();
@@ -21,9 +24,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ type: ["application/json", "application/csp-report"] }));
 
 // routes
-app.get("/books",  (req, res) => {
-   res.json(showBooks())
-});
+// app.get("/books",  (req, res) => {
+//    res.json(showBooks())
+// });
+
+// new get route
+app.get('/books', bookCtrl.getBooks);
 
 app.post('/post/registerBook', (req, res) => {
     registerBook(req.body.title, req.body.author)
@@ -50,7 +56,7 @@ app.listen(port, () => {
   console.log(`Listening to requests on http://localhost:${port}`);
 });
 
-const dbURI = "mongodb+srv://test:cctdublin2020@cluster0.ay5gh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const dbURI = "mongodb+srv://test:cctdublin2020@cluster0.ay5gh.mongodb.net/iwa_ca2?retryWrites=true&w=majority";
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
         .then((result) => console.log('connected to db'))
