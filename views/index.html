@@ -43,6 +43,7 @@
             for (var i = 0; i < myBooks.length; i++) {
                 tr = table.insertRow(-1); 
                 tr.addEventListener('click', pickDataFromRow(myBooks[i]));
+                tr.id = myBooks[i]._id
                 for (var j = 0; j < col.length; j++) {
                     var newCell = tr.insertCell(-1);
                     newCell.innerHTML = myBooks[i][col[j]]; 
@@ -63,15 +64,11 @@
         const pickDataFromRow = (row) => (event) => {
             // save data in a object
             book = row;
-            // // creating edit button
-            // var editButton = document.getElementById('editButton') ||
-            // document.createElement('a')
-            // editButton.id = 'editButton'
-            // editButton.href = '/edit?id=' + row.id + '&author=' + row.author + '&title=' + row.title
-            // editButton.innerHTML = "Edit"
-            // // appending edit button
-            // var divContainer = document.getElementById("buttons");
-            // divContainer.appendChild(editButton);
+            const previousSelected = document.querySelector('.selected')
+            if (previousSelected) {
+                previousSelected.className = ''
+            } 
+            document.getElementById(row._id).className = 'selected' 
         }
 
         // function to delete book 
@@ -90,6 +87,12 @@
     </script>
 
     <body>
+        
+        <style>
+            .selected {
+                background-color: powderblue !important;
+            }
+        </style>
         <div class="container header">
             <img src="img/logo.jfif" alt="liber logo: book open" width="150" height="100">
             <h1 class="logo">Liber</h1>

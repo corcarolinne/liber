@@ -28,3 +28,12 @@ exports.deleteBook = function(req, res) {
     res.json(books);
   }); 
 };
+
+exports.updateBook = function(req, res) {
+  Book.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true}, function (err, books) {
+    if (err) {
+      res.status(400).json(err); 
+    } 
+    res.json(books);
+  }); 
+};
