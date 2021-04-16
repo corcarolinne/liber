@@ -33,7 +33,9 @@
 .table tr {
     cursor: pointer;
 }
-
+.selected {
+    background-color: powderblue !important;
+}
 .form-group {
     text-align: center;
     font-family: 'Roboto', sans-serif;

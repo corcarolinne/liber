@@ -1,2 +1,2 @@
 # liber
-Liber is a web application I did for the Interactive Web Applications module. It's a simple CRUD to list and keep track of the books you have. It works as an organizer, where you can add books you have at home, edit their information (such as authors), update them and delete. 
+Liber is a web application I did for the Interactive Web Applications module. It's a simple CRUD to list and keep track of the books you have. It works as an organizer, where you can keep track of the books you own.
