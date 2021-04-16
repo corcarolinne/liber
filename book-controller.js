@@ -19,3 +19,12 @@ exports.createBook = function(req, res) {
         res.redirect('/')
     });
 };
+
+exports.deleteBook = function(req, res) {
+  Book.findByIdAndRemove({_id: req.params.id}, function (err, books) {
+    if (err) {
+      res.status(400).json(err); 
+    } 
+    res.json(books);
+  }); 
+};

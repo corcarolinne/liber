@@ -6,13 +6,12 @@ const path = require("path");
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const deleteBook = require('./controllers/deleteBook.js')
-const updateBook = require('./controllers/updateBook.js')
-//const registerBook = require('./controllers/registerBook.js')
+// const deleteBook = require('./controllers/deleteBook.js')
+// const updateBook = require('./controllers/updateBook.js')
+// //const registerBook = require('./controllers/registerBook.js')
 
 // last added
 const bookCtrl = require('./book-controller');
-//const router = express.Router();
 
 // app configuration
 const app = express();
@@ -25,11 +24,12 @@ app.use(bodyParser.json({ type: ["application/json", "application/csp-report"] }
 // routes
 app.get('/books', bookCtrl.getBooks);
 app.post('/registerBook', bookCtrl.createBook);
+app.delete('/delete/:id', bookCtrl.deleteBook);
 
-app.delete('/delete/:id', (req, res) => {
-    deleteBook(req.params.id)
-    res.send('sucessfully deleted')
-})
+// app.delete('/delete/:id', (req, res) => {
+//     deleteBook(req.params.id)
+//     res.send('sucessfully deleted')
+// })
 
 // app.get("/edit", (req, res) => {
 //     res.sendFile(__dirname+"/views/updateBookPage.html")

@@ -26,7 +26,7 @@
                 .then(res => res.json())
             
             // defining column names
-            var col = ['id', 'title', 'author'];
+            var col = ['_id', 'title', 'author'];
             // creating table
             var table = document.createElement("table");
             table.className = "container table table table-hover";
@@ -76,9 +76,8 @@
 
         // function to delete book 
         function deleteBook() {
-            console.log('entra aqui');
             // pick id from book to delete
-            var bookToDelete = book.id;
+            var bookToDelete = book._id;
             fetch(currentUrl +`/delete/${bookToDelete}`, {
                 method: 'DELETE',
             })
