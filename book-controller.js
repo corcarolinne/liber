@@ -8,3 +8,14 @@ exports.getBooks = function(req, res) {
     res.json(books);
   }); 
 };
+
+exports.createBook = function(req, res) { 
+    let newBook = new Book(req.body);
+    newBook.save(function (err, book) { 
+        if (err) { 
+            res.status (400).json(err);
+        }
+
+        res.redirect('/')
+    });
+};

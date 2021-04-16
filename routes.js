@@ -1,9 +1,13 @@
-const express = require('express');
-const router = express.Router();
 
-const bookCtrl = require('./book-controller');
+// i don't think this file is necessary anymore 
 
-router.get('/books', bookCtrl.getBooks);
+// const express = require('express');
+// const router = express.Router();
+
+// const bookCtrl = require('./book-controller');
+
+// router.get('/books', bookCtrl.getBooks);
+// router.post('/books', bookCtrl.createBook);
 
 
-module.exports = router;
+// module.exports = router;
