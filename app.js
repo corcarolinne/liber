@@ -5,11 +5,13 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const dotenv = require("dotenv");
 const bookCtrl = require('./book-controller');
 
 // app configuration
 const app = express();
 const port = process.env.PORT || 8000;
+dotenv.config();
 app.use(logger('tiny'));
 app.use(express.static(path.resolve(__dirname, 'views'))); 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,7 +28,7 @@ app.listen(port, () => {
   console.log(`Listening to requests on http://localhost:${port}`);
 });
 
-const dbURI = "mongodb+srv://test:cctdublin2020@cluster0.ay5gh.mongodb.net/iwa_ca2?retryWrites=true&w=majority";
+const dbURI = process.env.DB_URL;
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
         .then((result) => console.log('connected to db'))
