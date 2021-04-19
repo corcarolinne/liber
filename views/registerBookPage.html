@@ -19,22 +19,22 @@
         <div class="container header">
             <img src="img/logo.jfif" alt="liber logo: book open" width="150" height="100">
             <h1 class="logo">Liber</h1>
-            <h4 class="slogan">Your online personal library</h4>
+            <h4 class="slogan">Personal Book Catalog</h4>
         </div>
         <div class="container header-buttons" id="buttons">
-            <input type="button" onclick="document.location='index.html'" value="Home" >
-            <input type="button" onclick="document.location='registerBookPage.html'"value="Add Book" />
-            <input type="button" onclick="deleteBook()" value="Delete" />
+            <input type="button" class="btn btn-primary" onclick="document.location='index.html'" value="Home" />
+            <input type="button" class="btn btn-primary" onclick="document.location='registerBookPage.html'"value="Add Book" />
+            <input type="button" class="btn btn-primary" onclick="deleteBook()" value="Delete" />
         </div>
         <p id="showData"></p>
-        <div class="form-group row">
+        <div class="form-group">
             <h2 class="form-title"> Register Book</h2>
             <form enctype="application/json" action="/registerBook" method="post" >
                 <label for="title">Title:</label><br>
                 <input type="text" id="title" name="title" value=""><br>
                 <label for="author">Author:</label><br>
                 <input type="text" id="author" name="author" value=""><br><br>
-                <button type="submit">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form> 
         </div>
         <footer>Made with ❤ by Carolinne Cordeiro</footer>

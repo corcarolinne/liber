@@ -28,8 +28,10 @@ app.listen(port, () => {
   console.log(`Listening to requests on http://localhost:${port}`);
 });
 
+// picking db url
 const dbURI = process.env.DB_URL;
 
+// db connection
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
         .then((result) => console.log('connected to db'))
         .catch((err) => console.log(err));

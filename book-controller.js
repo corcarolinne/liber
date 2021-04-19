@@ -1,3 +1,5 @@
+// full backend CRUD
+
 var Book = require('./models/book')
 
 exports.getBooks = function(req, res) {
